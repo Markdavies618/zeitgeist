@@ -1,0 +1,47 @@
+include ../inc/nav
+
+.new-feed-container
+  h2 Create a new feed
+  form.new-feed-form(ng-submit="createFeed()", name="createFeedForm")
+    .control-group
+        //- label.control-label(for="title") Name
+        .controls
+            input(type="text", data-ng-model="title", placeholder="Name", name="username", required, autofocus)
+    div()
+      .control-group()
+        //- label.control-label(for="hashtag1") hashtag1
+        .controls
+          input(type="text", data-ng-model="hashtag1", placeholder="hashtag1", name="hashtag1", required)
+    //- div()
+    //-   .control-group()
+    //-     //- label.control-label(for="hashtag2") hashtag2
+    //-     .controls
+    //-       input(type="text", data-ng-model="hashtag2", placeholder="hashtag2", name="hashtag2")
+    //- div()
+    //-   .control-group()
+    //-     //- label.control-label(for="hashtag3") hashtag3
+    //-     .controls
+    //-       input(type="text", data-ng-model="hashtag3", placeholder="hashtag3", name="hashtag3")
+    div()
+      .control-group()
+        label.control-label(for="hashtag3") Approve Images first?
+          input.approve-checkbox(type="checkbox", data-ng-model="approve", name="hashtag3")
+        .controls
+    div()
+      .control-group()
+        //- label.control-label(for="hashtag3") Client Id
+        .controls
+          input(type="text", data-ng-model="clientId", placeholder="Client Id", name="hashtag3", required)
+
+
+    .control-group
+        .controls
+            button.btn(type="submit", data-ng-disabled="createFeedForm.$invalid") Submit
+
+
+
+      //-       div(ng-repeat='hashtag in hashtags')
+      //- .control-group()
+      //-   label.control-label(for="{{hashtag.name}}") {{hashtag.name}}
+      //-   .controls
+      //-     input(type="text", placeholder="{{hashtag.name}}", name="{{hashtag.name}}", required)

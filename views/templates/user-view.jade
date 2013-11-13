@@ -1,0 +1,7 @@
+include ../inc/nav
+
+h3 Username : {{ user.username }}
+
+ul
+  li(ng-repeat="feed in feeds")
+    a(href="/feeds/{{ feed._id }}") {{ feed.title }}

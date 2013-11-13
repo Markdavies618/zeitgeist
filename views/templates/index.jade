@@ -1,0 +1,6 @@
+include ../inc/nav
+
+div.container
+  div.day(ng-repeat="day in days", ng-click="viewDay()")
+    h2() {{$index + 1}}
+    a(ng-show="admin",href="/cms/{{day.permalink}}") Edit

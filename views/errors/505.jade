@@ -1,0 +1,83 @@
+!!!
+html(xmlns:og="http://ogp.me/ns#", xmlns:fb="http://www.facebook.com/2008/fbml")
+	head
+
+		title Error 505 - Bestival Live on Instagram
+
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0")
+		meta(property="og:site_name", content="Bestival Live")
+		meta(property="fb:app_id", content="622320844479268")
+		meta(property="og:title", content="Bestival Live")
+		meta(property="og:description", content="Sunday Best presents Bestival. 5, 6, 7, 8 September 2013. Robin Hill Country Park, Isle of Wight, Curated by Josie + Rob da Bank.")
+		meta(property="og:type", content="website")
+		meta(name="twitter:card", value="summary")
+		meta(name="twitter:title", content="Bestival, Live on Instagram")
+		meta(name="twitter:description", content="Sunday Best presents Bestival. 5, 6, 7, 8 September 2013. Robin Hill Country Park, Isle of Wight, Curated by Josie + Rob da Bank.")
+		meta(name="twitter:image", content="http://instagramlive.bestival.net/img/facebook-photo.jpg")
+		meta(property="og:url", content="http://instagramlive.bestival.net")
+		meta(property="og:image", content="http://instagramlive.bestival.net/img/facebook-photo.jpg")
+
+		link(rel='shortcut icon',type='image/png',href='/img/favicon.ico')
+
+		meta(name="twitter:site", value="@Bestival")
+		meta(name="twitter:creator", value="@synthmedia")
+
+		meta(name="author", content="Bestival Live")
+		meta(name="description", content="Sunday Best presents Bestival. 5, 6, 7, 8 September 2013. Robin Hill Country Park, Isle of Wight, Curated by Josie + Rob da Bank.")
+
+		script(type="text/javascript",src="//use.typekit.net/kez7bcc.js")
+		script(type="text/javascript")
+			try{Typekit.load();}catch(e){}
+
+		link(rel="stylesheet", href='/css/main.css')
+
+	body
+		div#fb-root
+		script
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=127424770691712";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+		nav.nav-wrapper
+			.left.bg-blue
+			a.middle.bg-yellow(href="http://instagram.com/bestival")
+				.whole-tag
+					span.hashtag #
+					span.tag Bestival
+				.whole-tag
+					span.hashtag.middle-tag #
+					span.tag.middle-tag HMSBestival
+				.whole-tag
+					span.hashtag #
+					span.tag Bestival13
+				.admin-title
+					span.tag Bestival Live CMS
+			.right.bg-red
+				div.social-button
+					div.fb-like(data-href="http://instagramlive.bestival.net", data-send="true",data-layout="button_count",data-width="450",data-show-faces="true")
+
+				a(href="https://twitter.com/share", class="twitter-share-button", data-text="Bestival live on Instagram! http://instagramlive.bestival.net", data-hashtags="bestival13", url="http://instagramlive.bestival.net") Tweet
+				script
+					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+				div.header-links-wrapper
+					a.bestival-instagram-link(href="http://instagram.com/bestival", target="_blank") Bestival on Instagram
+					a.synth(href="http://synthmedia.co.uk", target="_blank") Built by Synth Media
+	
+		div.error
+			h2 Error 505
+			h3 Server Error
+			a(href="http://2013.bestival.net") &larr; Back to Bestival
+
+		script
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-43726243-1', 'instagramlive.bestival.net');
+			ga('send', 'pageview');
+

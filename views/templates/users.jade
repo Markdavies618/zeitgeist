@@ -1,0 +1,7 @@
+include ../inc/nav
+
+.users-container
+  h2 Users
+  ul
+    li(ng-repeat="user in users")
+      a(href="/users/{{user._id}}").btn.btn-lightblue {{user.username}}

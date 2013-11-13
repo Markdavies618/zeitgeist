@@ -1,0 +1,22 @@
+{
+  "basePort": 4002
+, "db": {
+    "development": "mongodb://localhost/bestivalcalender"
+  , "test": "mongodb://localhost/esis-test"
+  , "production": ""
+  }
+  , "facebook":
+    { "appId": "595639770493576"
+    , "appSecret": "c86afb797d979840fe7d9e4109589788"
+    , "callbackUrl": "http://localhost:4004/auth/facebook/callback"
+    }
+  , "adminIds":
+    [ "500261036"
+    , "564510071"
+    , "545998365"
+    , "510438540"
+    , "644049123"
+    ]
+  , "startDate" : "December 1, 2013 00:00:00"
+  , "endDate" : "December 25, 2013 00:00:00"
+}

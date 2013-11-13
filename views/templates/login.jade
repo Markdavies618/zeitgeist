@@ -1,0 +1,23 @@
+div.overlay
+  div.overlay__title
+    .form-container
+      form.form-horizontal(ng-submit="login()", name="loginForm")
+        .control-group
+          .controls
+            input.form-text(type="text", data-ng-model="username", placeholder="Username", name="username", required, autofocus)
+        .control-group
+          .controls
+              input.form-text(type="password", data-ng-model="password", placeholder="Password", name="password", required)
+        .control-group
+          .controls
+            label(for="rememberme").checkbox
+              input.rememberme(type="checkbox", data-ng-model="rememberme", name="rememberme")
+              | Remember me
+        .control-group
+          .controls
+            button.btn(type="submit", data-ng-disabled="loginForm.$invalid") Log in
+      p ... or
+        a.btn(href="/register") Register:
+      a.btn(href="", data-ng-click="loginOauth('facebook')")
+        i.icon-facebook-sign
+        |  Facebook
