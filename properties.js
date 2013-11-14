@@ -4,7 +4,7 @@ var _ = require('lodash')
     { basePort: 4002
     , db:
       { host: 'localhost'
-      , name: 'bestivalcalender'
+      , name: 'zeitgeist'
       , port: 27017
       }
     , facebook:

@@ -12,16 +12,21 @@ var app = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.dir
         access       : access.anon
       })
 
-      .when('/:list', {
-        templateUrl  : '/templates/day',
-        controller   : 'BlogCtrl',
-        access       : access.user
-      })
 
       .when('/cms', {
         templateUrl  : '/templates/day-control',
         controller   : 'CMSCtrl',
         access       : access.admin
+      })
+
+      .when('/cms-add', {
+        templateUrl  : '/templates/new-list',
+        controller   : 'NewListCtrl',
+      })
+      .when('/:list', {
+        templateUrl  : '/templates/day',
+        controller   : 'BlogCtrl',
+        access       : access.user
       })
 
       .otherwise({

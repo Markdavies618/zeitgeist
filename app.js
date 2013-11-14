@@ -33,7 +33,7 @@ function compile(str, path) {
 }
 
 require('./models')(serviceLocator, function () {
-
+console.log('sfd');
   // app.configure(function(){
   app.set('port', process.env.PORT || 4004)
   app.set('views', __dirname + '/views');
@@ -51,14 +51,14 @@ require('./models')(serviceLocator, function () {
         , cookie: { maxAge: 60 * 60 * 1000 }
     }));
 
-  app.use(passport.initialize());
-  app.use(passport.session());
+  // app.use(passport.initialize());
+  // app.use(passport.session());
 
-  passport.use(serviceLocator.userService.localStrategy);
-  passport.use(serviceLocator.userService.facebookStrategy()); // Comment out this line if you don't want to enable login via Facebook
+  // passport.use(serviceLocator.userService.localStrategy);
+  // passport.use(serviceLocator.userService.facebookStrategy()); // Comment out this line if you don't want to enable login via Facebook
 
-  passport.serializeUser(serviceLocator.userService.serializeUser);
-  passport.deserializeUser(serviceLocator.userService.deserializeUser);
+  // passport.serializeUser(serviceLocator.userService.serializeUser);
+  // passport.deserializeUser(serviceLocator.userService.deserializeUser);
   app.use(app.router);
 
 
@@ -98,6 +98,14 @@ require('./models')(serviceLocator, function () {
   require('./controllers/item').createRoutes(serviceLocator, app);
   require('./controllers/list').createRoutes(serviceLocator, app);
 
+
+
+  app.get('/*', function (req, res) {
+    
+    res.render('index', {
+      "title" : "Index"
+    });
+  });
   app.use(function errorHandler(error, req, res, next) {
     serviceLocator.logger.error('Error occurred while handling request:\n',
       _.pick(req, 'method', 'url', 'query', 'headers', 'ip', 'ips'))

@@ -8,6 +8,7 @@ module.exports = function (serviceLocator, callback) {
 
   serviceLocator.register('itemService', service(serviceLocator.logger))
 
+  callback()
 
 
 

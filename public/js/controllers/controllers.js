@@ -4,7 +4,7 @@
 function HomeCtrl($scope, $rootScope, $http, Auth, $location, Lists, $cookieStore) {
 
 
-    Lists.getDays(function(lists){
+    Lists.getLists(function(lists){
       $scope.lists = lists
       console.log(days);
     })

@@ -9,5 +9,5 @@ module.exports = function (serviceLocator, callback) {
   serviceLocator.register('listService', service(serviceLocator.logger))
 
   
-
+  callback()
 }
