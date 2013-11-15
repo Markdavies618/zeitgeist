@@ -17,9 +17,9 @@ block content
   script(src='js/directives/directives.js')
   script(src='js/libs/ng-videosharing-embed.min.js')
   script(src='js/directives/navigation.js')
-  script(src='js/directives/ngAutocomplete.js')
+  script(src='js/directives/autocomplete.js')
+  script(src='js/libs/bootstrap.js')
 
-  script(type="text/javascript")
-    if (window.location.hash && window.location.hash == '#_=_') {
-        window.location.hash = '';
-    }
+  block stylesheets
+    link(rel="stylesheet", href='/css/bootstrap.css')
+

@@ -98,7 +98,12 @@ console.log('sfd');
   require('./controllers/item').createRoutes(serviceLocator, app);
   require('./controllers/list').createRoutes(serviceLocator, app);
 
-
+  app.get('/cms-add', function (req, res) {
+    
+    res.render('cms', {
+      "title" : "Index"
+    });
+  });
 
   app.get('/*', function (req, res) {
     

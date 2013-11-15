@@ -34,13 +34,16 @@ module.exports.createRoutes = function (serviceLocator, app) {
 
 
   app.post('/api/items', cors, noCache, function (req, res) {
-    serviceLocator.itemService.create(req.body.content ,function(err, day){
+    serviceLocator.logger.info('Adding item', req.body );
+
+    serviceLocator.itemService.create(req.body ,function(err, item){
       if ( err ){
         serviceLocator.logger.info('Post Days Error', err);
         return res.send(500);
       }
+      serviceLocator.logger.info('Created Item', item);
 
-      res.json({ day : day });
+      res.json(item);
 
     })
   });

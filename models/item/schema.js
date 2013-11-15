@@ -10,11 +10,10 @@ module.exports = function (logger) {
     { artist         : { type : String }
     , name           : { type : String }
     , type           : { type : String }
-    , spotify_link   : { type : String }
-    , itunes_link    : { type : String }
-    , rdio_link      : { type : String }
+    , spotify        : { type : String }
+    , itunes         : { type : String }
+    , rdio           : { type : String }
     , artwork        : { type : String }
-    , type           : { type : String }
     , date_created   : { type: Date, default: Date.now }
     }
 

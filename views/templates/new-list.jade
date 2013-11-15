@@ -1,11 +1,50 @@
-p new list
+h1 New List
 
 form.new-list-form(ng-submit="createList()", name="createFeedForm")
-  label.controls Blog
-    input(type="text", data-ng-model="title", placeholder="Name", name="username", required, autofocus)
-  label.controls Title
-    input(type="text", data-ng-model="title", placeholder="Title", name="username", required, autofocus)
-  label.controls Link
-    input(type="text", data-ng-model="title", placeholder="Name", name="username", required, autofocus)
-  label.controls Description
-    input(type="text", data-ng-model="title", placeholder="Name", name="username", autofocus)
+  div(class="form-group")
+    label.controls Blog
+    input.form-control(type="text", data-ng-model="list.title", placeholder="Name", name="username", required, autofocus)
+    label.controls Title
+    input.form-control(type="text", data-ng-model="list.name", placeholder="Title", name="username", required)
+    label.controls Link
+    input.form-control(type="text", data-ng-model="list.link", placeholder="Name", name="username", required)
+    label.controls Description
+    input.form-control(type="text", data-ng-model="list.description", placeholder="Name", name="username")
+    label(ng-repeat="item in list.items") {{$index + 1}}
+      p {{ item.artist }}
+
+
+    input.form-control(type="text", autocomplete, post-function="searchItems", name="first_name", placeholder="Add item" ,list="_items", style='margin-bottom: 100px')
+    datalist(id="_countries")
+      select(style="display: none;", id="_select", name="_select", ng-model='item', ng-options='k as v for (k,v) in items')
+  button.btn(data-toggle="modal", data-target="#myModal", ng-click="showAddItem()") Add
+
+  button.btn(ng-submit="createList()") Submit
+
+
+
+
+div(class="modal fade", id="myModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel" ,aria-hidden="true")
+  div.modal-dialog.new-item-container
+    div.modal-content
+      div.modal-header
+        h4(class="modal-title", id="myModalLabel") Add new item / track
+      form.new-item-form(ng-submit="addItem()")
+        label Artist
+        input.form-control(type="text", data-ng-model="item.artist", placeholder="Artist", required, autofocus)
+        label Name
+        input.form-control(type="text", data-ng-model="item.name", placeholder="name", required, autofocus)
+        label Artwork url
+        input.form-control(type="text", data-ng-model="item.artwork", placeholder="artwork")
+        label Itunes url
+        input.form-control(type="text", data-ng-model="item.itunes", placeholder="itunes")
+        label Spotify url
+        input.form-control(type="text", data-ng-model="item.spotify", placeholder="spotify")
+        label Amazon url
+        input.form-control(type="text", data-ng-model="item.amazon", placeholder="amazon")
+        label Rdio url
+        input.form-control(type="text", data-ng-model="item.rdio", placeholder="rdio")
+
+        div.modal-footer
+          button.btn.btn-primary(ng-submit="addItem()") Add
+

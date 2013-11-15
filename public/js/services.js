@@ -105,4 +105,22 @@ angular.module('myApp.services', [])
 })
 
 
+.service('Items', function($q, $http){
+  this.searchItems = function(term) {
+    var deferred = $q.defer();
+    $http.get('/api/items').then(function(items){
+        var _items = {};
+        console.log(items.data);
+        var items = items.data;
+        for(var i = 0, len = items.length; i < len; i++) {
+         _items[items[i].artist] = items[i].artist;
+        }
+          deferred.resolve(_items);
+        }, function() {
+          deferred.reject(arguments);
+        });
+        return deferred.promise;
+    }
+})
+
 
