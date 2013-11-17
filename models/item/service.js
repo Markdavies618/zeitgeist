@@ -35,8 +35,8 @@ module.exports = function (logger) {
     })
   }
 
-  service.findByPermalink = function(permalink , cb) {
-    service.model.findOne({permalink : permalink }).exec(function (err, day) {
+  service.findByArtistName = function(artist , cb) {
+    service.model.findOne({artist : artist }).exec(function (err, day) {
       if (err){
         logger.error('Find by Id day error:',err)
         cb(err)

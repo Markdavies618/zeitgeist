@@ -110,15 +110,16 @@ angular.module('myApp.services', [])
     var deferred = $q.defer();
     $http.get('/api/items').then(function(items){
         var _items = {};
-        console.log(items.data);
         var items = items.data;
         for(var i = 0, len = items.length; i < len; i++) {
-         _items[items[i].artist] = items[i].artist;
+         _items[items[i].artist] = items[i]._id;
         }
+
           deferred.resolve(_items);
         }, function() {
           deferred.reject(arguments);
         });
+
         return deferred.promise;
     }
 })

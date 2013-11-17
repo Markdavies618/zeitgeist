@@ -1,16 +1,11 @@
 'use strict';
 
 
+
 function NewListCtrl ($rootScope, $routeParams, $scope, $http, $location, Lists, Items ) {
 
-  $scope.list = {
-    title : ''
-  , name : ''
-  , link : ''
-  , description : ''
-  , items : []
-  }
 
+  $rootScope.list = emptyList()
 
 
   var emptyItem = {
@@ -33,22 +28,24 @@ function NewListCtrl ($rootScope, $routeParams, $scope, $http, $location, Lists,
   }
 
   $scope.createList = function(){
-    console.log('blah blah')
-    console.log($scope.item);
+    $http.post('/api/lists', $rootScope.list).success(function(list){
+      // console.log(''list);
+      $rootScope.list = emptyList()
+      console.log($rootScope.list);
+    })
   }
 
   $scope.addItem = function(){
-    console.log('submit')
     $('#myModal').modal('hide')
-    // var item = $scope.item
-    // $http.post('/api/items', item).success(function(item){
-    //   console.log(item);
-    //   $scope.list.items.push(item)
-    //   $scope.item = emptyItem
-    // })
+    var item = $scope.item
+    $http.post('/api/items', item).success(function(item){
+      console.log(item);
+      $rootScope.list.items.push(item)
+      $scope.item = emptyItem
+    })
 
   }
-
+ 
 
   $scope.selectedCountry = null;
   $scope.items = {};
@@ -60,9 +57,22 @@ function NewListCtrl ($rootScope, $routeParams, $scope, $http, $location, Lists,
   }
   $scope.searchItems = function(term) {
     Items.searchItems(term).then(function(items){
+      console.log('items',items);
       $scope.items = items;
     });
   }
 
+
+}
+
+
+function emptyList(){
+  return {
+    title : ''
+  , name : ''
+  , link : ''
+  , description : ''
+  , items : []
+  }
 
 }

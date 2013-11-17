@@ -34,13 +34,14 @@ module.exports.createRoutes = function (serviceLocator, app) {
 
 
   app.post('/api/lists', cors, noCache, function (req, res) {
-    serviceLocator.listService.create(req.body.content ,function(err, day){
+    serviceLocator.listService.create(req.body ,function(err, list){
       if ( err ){
         serviceLocator.logger.info('Post Days Error', err);
         return res.send(500);
       }
+      serviceLocator.logger.info('List Added', list);
 
-      res.json({ day : day });
+      res.json(list);
 
     })
   });

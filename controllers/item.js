@@ -19,15 +19,15 @@ module.exports.createRoutes = function (serviceLocator, app) {
   });
 
 
-  app.get('/api/items/:permalink', cors, function (req, res) {
-    serviceLocator.itemService.findByPermalink(req.params.permalink, function(err, day){
+  app.get('/api/items/artist', cors, function (req, res) {
+    serviceLocator.itemService.findByArtistName(req.query.artist, function(err, item){
       if ( err ){
         serviceLocator.logger.info('Find day findByPermalink Error', err);
         return res.send(500);
       }
-      if (!day) return res.send(404)
+      if (!item) return res.send(404)
 
-      res.json({ day : day });
+      res.json(item);
     })
   });
 

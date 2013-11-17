@@ -10,13 +10,14 @@ form.new-list-form(ng-submit="createList()", name="createFeedForm")
     input.form-control(type="text", data-ng-model="list.link", placeholder="Name", name="username", required)
     label.controls Description
     input.form-control(type="text", data-ng-model="list.description", placeholder="Name", name="username")
-    label(ng-repeat="item in list.items") {{$index + 1}}
-      p {{ item.artist }}
+    ul() 
+      li(ng-repeat="item in list.items") {{$index + 1}}
+        p {{ item.artist }}
 
 
-    input.form-control(type="text", autocomplete, post-function="searchItems", name="first_name", placeholder="Add item" ,list="_items", style='margin-bottom: 100px')
-    datalist(id="_countries")
-      select(style="display: none;", id="_select", name="_select", ng-model='item', ng-options='k as v for (k,v) in items')
+    input.form-control(ng-focus="{onBlur()}",type="text", autocomplete, post-function="searchItems", name="first_name", placeholder="Add item" ,list="_items", style='margin-bottom: 100px')
+    datalist(id="_items")
+      select(style="display: none;", ng-blur="onBlur()",id="_select", name="_select", ng-model='item', ng-options='k as v for (k,v) in items')
   button.btn(data-toggle="modal", data-target="#myModal", ng-click="showAddItem()") Add
 
   button.btn(ng-submit="createList()") Submit
